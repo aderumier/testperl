@@ -5,7 +5,7 @@ tasks:
     build:
       services:
         app:
-          image: odisohosting/demo-cp
+          image: odisohosting/testperl
           naming_strategy: sha1
           environment: []
   deployment:
@@ -13,12 +13,12 @@ tasks:
       services:
         app:
           endpoints:
-            - name: app
+            - name: testperl
           specification:
             accessibility:
                 from_external: true
-            ports: [8000]
+            ports: [8080]
           deployment_strategy:
             readiness_probe:
               type: tcp
-              port: 8000
+              port: 8080
